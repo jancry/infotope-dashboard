@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>infotope.cloud — Tableau de bord</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-name {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .service-url {
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #666;
+            word-break: break-all;
+        }
+
+        .service-status {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .badge-compose {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .badge-app {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        .badge-github {
+            background: #fce4ec;
+            color: #c2185b;
+        }
+
+        .service-link {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 16px;
+            background: #667eea;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .service-link:hover {
+            background: #764ba2;
+        }
+
+        .disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .disabled .service-link {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .disabled .service-link:hover {
+            background: #ccc;
+        }
+
+        .footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9em;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>infotope.cloud</h1>
+            <p>Écosystème d'applications auto-hébergées</p>
+        </div>
+
+        <div class="services-grid">
+            <a href="https://dokploy.infotope.cloud" class="service-card" target="_blank" rel="noopener">
+                <div class="service-name">Dokploy</div>
+                <div class="service-url">dokploy.infotope.cloud</div>
+                <div class="service-status">
+                    <span class="badge badge-compose">Tableau de bord</span>
+                </div>
+                <span class="service-link">Accéder →</span>
+            </a>
+
+            <a href="https://n8n.infotope.cloud" class="service-card" target="_blank" rel="noopener">
+                <div class="service-name">n8n</div>
+                <div class="service-url">n8n.infotope.cloud</div>
+                <div class="service-status">
+                    <span class="badge badge-compose">Compose</span>
+                </div>
+                <span class="service-link">Accéder →</span>
+            </a>
+
+            <a href="https://noco.infotope.cloud" class="service-card" target="_blank" rel="noopener">
+                <div class="service-name">NocoDB</div>
+                <div class="service-url">noco.infotope.cloud</div>
+                <div class="service-status">
+                    <span class="badge badge-compose">Compose</span>
+                </div>
+                <span class="service-link">Accéder →</span>
+            </a>
+
+            <a href="https://nextcloud.infotope.cloud" class="service-card" target="_blank" rel="noopener">
+                <div class="service-name">Nextcloud</div>
+                <div class="service-url">nextcloud.infotope.cloud</div>
+                <div class="service-status">
+                    <span class="badge badge-compose">Compose</span>
+                </div>
+                <span class="service-link">Accéder →</span>
+            </a>
+
+            <a href="https://postiz.infotope.cloud" class="service-card" target="_blank" rel="noopener">
+                <div class="service-name">Postiz</div>
+                <div class="service-url">postiz.infotope.cloud</div>
+                <div class="service-status">
+                    <span class="badge badge-compose">Compose</span>
+                </div>
+                <span class="service-link">Accéder →</span>
+            </a>
+
+            <a href="https://stats.infotope.cloud" class="service-card" target="_blank" rel="noopener">
+                <div class="service-name">Umami</div>
+                <div class="service-url">stats.infotope.cloud</div>
+                <div class="service-status">
+                    <span class="badge badge-compose">Compose</span>
+                </div>
+                <span class="service-link">Accéder →</span>
+            </a>
+
+            <a href="https://classroomio.infotope.cloud" class="service-card" target="_blank" rel="noopener">
+                <div class="service-name">ClassroomIO</div>
+                <div class="service-url">classroomio.infotope.cloud</div>
+                <div class="service-status">
+                    <span class="badge badge-compose">Compose</span>
+                </div>
+                <span class="service-link">Accéder →</span>
+            </a>
+
+            <a href="https://directinfo.tv" class="service-card" target="_blank" rel="noopener">
+                <div class="service-name">DirectInfo.tv</div>
+                <div class="service-url">directinfo.tv</div>
+                <div class="service-status">
+                    <span class="badge badge-app">Application</span>
+                    <span class="badge badge-github">GitHub</span>
+                </div>
+                <span class="service-link">Accéder →</span>
+            </a>
+
+            <a href="https://kouizit.infotope.cloud" class="service-card" target="_blank" rel="noopener">
+                <div class="service-name">Kouizit</div>
+                <div class="service-url">kouizit.infotope.cloud</div>
+                <div class="service-status">
+                    <span class="badge badge-app">Application</span>
+                    <span class="badge badge-github">GitHub</span>
+                </div>
+                <span class="service-link">Accéder →</span>
+            </a>
+
+            <div class="service-card disabled">
+                <div class="service-name">CKAN</div>
+                <div class="service-url">ckan.infotope.cloud</div>
+                <div class="service-status">
+                    <span class="badge" style="background: #e0e0e0; color: #666;">En veille</span>
+                </div>
+                <span class="service-link">Non disponible</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>VPS Hostinger • 4 vCPU, 15 Go RAM • Piloté par Dokploy • Ubuntu 24.04</p>
+        </div>
+    </div>
+</body>
+</html>
